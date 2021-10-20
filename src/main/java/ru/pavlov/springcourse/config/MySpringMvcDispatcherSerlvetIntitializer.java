@@ -1,4 +1,4 @@
-package ru.pavlov.springcourse;
+package ru.pavlov.springcourse.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
