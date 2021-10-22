@@ -24,7 +24,14 @@ public class PersonDAO {
     }
 
     public Person show(int id){
-        //return people.get(id);
+/*        Person resultPerson = null;
+        for (int i = 0; i < people.size(); i++){
+            if (id == people.get(i).getId()){
+                resultPerson =  people.get(i);
+                break;
+            }
+        }
+        return resultPerson;*/
         return people.stream().filter(person -> person.getId() == id).findAny().orElse(null);
     }
 
@@ -32,4 +39,14 @@ public class PersonDAO {
         person.setId(++PEOPLE_COUNT);
         people.add(person);
     }
+
+    public void update(int id, Person updatedPerson){
+        Person personToBeUpdated = show(id);
+        personToBeUpdated.setName(updatedPerson.getName());
+    }
+
+    public void delete(int id){
+        people.removeIf(person -> person.getId() == id);
+    }
+
 }
